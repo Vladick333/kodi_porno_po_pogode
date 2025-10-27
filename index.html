@@ -7,6 +7,28 @@
 <title>Коди порно по погоде — Галерея</title>
 <!-- Базовый стиль, тёмная тема, оранжевые акценты -->
 <style>
+ /* Мобильная адаптация */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* больше карточек в ряд */
+    gap: 8px;
+  }
+
+  .card img {
+    max-height: 140px;  /* делаем фото меньше */
+    border-radius: 8px;
+  }
+
+  .meta h3 {
+    font-size: 13px;
+  }
+
+  .meta .sub,
+  .meta .small {
+    font-size: 11px;
+  }
+}
+
  /* Базовый сброс */
 * {
   box-sizing: border-box;
@@ -576,6 +598,7 @@ video, iframe {
 </script>
 </body>
 </html>
+
 
 
 
