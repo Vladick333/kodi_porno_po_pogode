@@ -7,19 +7,73 @@
 <title>Коди порно по погоде — Галерея</title>
 <!-- Базовый стиль, тёмная тема, оранжевые акценты -->
 <style>
-  @media (max-width: 768px) {
+ /* Базовый сброс */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Контейнер */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
+
+/* Галерея */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+/* Карточки */
+.card {
+  background: #181818;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.title {
+  padding: 8px;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Видео и iframe */
+video, iframe {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* === Адаптация под мобильные устройства === */
+@media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
   }
+
   .title {
     font-size: 13px;
   }
-  .modal-content {
-    max-width: 100%;
-    border-radius: 0;
+
+  header h1 {
+    font-size: 18px;
+    text-align: center;
   }
-  video, iframe {
-    height: 240px;
+
+  body {
+    padding: 5px;
   }
 }
 
@@ -525,4 +579,5 @@
 </script>
 </body>
 </html>
+
 
