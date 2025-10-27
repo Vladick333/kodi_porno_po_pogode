@@ -55,27 +55,7 @@ video, iframe {
   height: auto;
   border-radius: 10px;
 }
-
-/* === Адаптация под мобильные устройства === */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 8px;
-  }
-
-  .title {
-    font-size: 13px;
-  }
-
-  header h1 {
-    font-size: 18px;
-    text-align: center;
-  }
-
-  body {
-    padding: 5px;
-  }
-}
+ 
 
   :root{
     --bg: #0b0b0c;
@@ -170,6 +150,23 @@ video, iframe {
   /* minor transitions */
   .card, .side-item, .tab, .page-btn {transition:transform .14s ease, box-shadow .14s ease}
   .card:hover{transform:translateY(-6px)}
+ /* Общие настройки изображений */
+.card img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 240px; /* ограничивает высоту */
+  object-fit: cover; /* обрезает фото, чтобы не вытягивалось */
+  border-radius: 10px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .card img {
+    max-height: 160px; /* уменьшаем высоту на телефонах */
+  }
+}
+
 </style>
 </head>
 <body>
@@ -579,5 +576,6 @@ video, iframe {
 </script>
 </body>
 </html>
+
 
 
