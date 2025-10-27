@@ -7,83 +7,11 @@
 <title>Коди порно по погоде — Галерея</title>
 <!-- Базовый стиль, тёмная тема, оранжевые акценты -->
 <style>
- /* Мобильная адаптация */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* больше карточек в ряд */
-    gap: 8px;
-  }
-
-  .card img {
-    max-height: 140px;  /* делаем фото меньше */
-    border-radius: 8px;
-  }
-
-  .meta h3 {
-    font-size: 13px;
-  }
-
-  .meta .sub,
-  .meta .small {
-    font-size: 11px;
-  }
-}
-
- /* Базовый сброс */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Контейнер */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px;
-}
-
-/* Галерея */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 12px;
-}
-
-/* Карточки */
-.card {
-  background: #181818;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.title {
-  padding: 8px;
-  font-size: 16px;
-  color: #fff;
-}
-
-/* Видео и iframe */
-video, iframe {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
- 
-
-  :root{
+  :root {
     --bg: #0b0b0c;
     --panel: #111213;
     --muted: #9aa0a6;
-    --accent: #ff7a00; /* оранжевый акцент */
+    --accent: #ff7a00;
     --white: #ffffff;
     --card: #141416;
     --radius: 12px;
@@ -91,105 +19,176 @@ video, iframe {
     --maxw: 1280px;
     --glass: rgba(255,255,255,0.03);
   }
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg),#050505);color:var(--white);-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:18px auto;padding:16px}
-  header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-  .logo{
-    display:flex;align-items:center;gap:8px;
-    font-weight:700;font-size:20px;
-  }
-  .logo .mark{
-    background:var(--accent);
-    color:#000;padding:6px 10px;border-radius:6px;font-weight:800;font-family:monospace;
-  }
-  .top-controls{margin-left:auto;display:flex;gap:10px;align-items:center}
-  .search{display:flex;gap:8px;align-items:center;background:var(--panel);padding:6px;border-radius:999px;border:1px solid rgba(255,255,255,0.03)}
-  .search input{background:transparent;border:0;outline:0;color:var(--white);padding:8px 10px;width:260px}
-  .btn{background:var(--accent);color:#000;padding:8px 12px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
-  .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
 
-  /* layout */
-  .topbar{display:flex;gap:12px;margin-bottom:14px;align-items:center}
-  .tabs{display:flex;gap:8px}
-  .tab{padding:8px 12px;border-radius:8px;background:transparent;border:1px solid transparent;color:var(--muted);cursor:pointer}
-  .tab.active{background:var(--glass);border-color:rgba(255,255,255,0.04);color:var(--white);box-shadow:0 6px 18px rgba(0,0,0,.6)}
-  .stats{color:var(--muted);font-size:13px;margin-left:12px}
-
-  /* featured */
-  .featured{display:grid;grid-template-columns:2fr 1fr;gap:var(--gap);margin-bottom:18px}
-  .feature-card{background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6));border-radius:var(--radius);overflow:hidden;position:relative;min-height:240px;display:flex;flex-direction:column;justify-content:flex-end}
-  .feature-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
-  .feature-meta{position:relative;padding:18px;color:var(--white)}
-  .feature-meta h2{margin:0 0 6px;font-size:20px}
-  .feature-meta p{margin:0;color:var(--muted);font-size:14px}
-
-  .side-feature{display:flex;flex-direction:column;gap:var(--gap)}
-  .side-item{background:var(--card);border-radius:12px;overflow:hidden;display:flex;gap:10px;align-items:center;padding:10px}
-  .side-item img{width:120px;height:70px;object-fit:cover;border-radius:8px;flex:0 0 120px}
-  .side-item .s-meta{font-size:13px}
-  .s-meta .t{font-weight:700}
-  .s-meta .s{color:var(--muted);font-size:12px;margin-top:6px}
-
-  /* grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap)}
-  .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.6);cursor:pointer;display:flex;flex-direction:column}
-  .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-  .meta{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
-  .meta h3{margin:0;font-size:14px}
-  .meta .sub{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px}
-  .pill{background:rgba(255,255,255,0.03);padding:4px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
-  .tag{color:var(--accent);font-weight:700;font-size:12px}
-
-  /* pagination */
-  .pager{display:flex;gap:8px;justify-content:center;margin:18px 0}
-  .page-btn{padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--muted);cursor:pointer}
-  .page-btn.active{background:var(--accent);color:#000;border-color:transparent}
-
-  /* modal player */
-  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
-  .modal.open{display:flex;background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(0,0,0,0.85))}
-  .modal-content{max-width:1100px;width:100%;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7)}
-  .modal-top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,.3))}
-  .close{background:transparent;border:0;color:var(--white);font-size:20px;padding:8px;cursor:pointer}
-  .player-wrap{background:#000;padding:6px}
-  .player-wrap video,.player-wrap iframe{width:100%;height:580px;border:0;background:#000;display:block}
-  @media (max-width:900px){.player-wrap video,.player-wrap iframe{height:320px}}
-
-  /* utilities */
-  .flex{display:flex;align-items:center;gap:8px}
-  .right{margin-left:auto}
-  .small{font-size:13px;color:var(--muted)}
-  .empty{color:var(--muted);padding:40px;text-align:center}
-  footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center;padding:28px 8px}
-  /* responsive */
-  @media (max-width:900px){
-    .featured{grid-template-columns:1fr;gap:10px}
-    .side-feature{flex-direction:row}
-    .side-item img{width:100px;height:60px}
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, var(--bg), #050505);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* minor transitions */
-  .card, .side-item, .tab, .page-btn {transition:transform .14s ease, box-shadow .14s ease}
-  .card:hover{transform:translateY(-6px)}
- /* Общие настройки изображений */
-.card img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 240px; /* ограничивает высоту */
-  object-fit: cover; /* обрезает фото, чтобы не вытягивалось */
-  border-radius: 10px;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  a { color: inherit; text-decoration: none; }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
+  .wrap {
+    max-width: var(--maxw);
+    margin: 18px auto;
+    padding: 16px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .logo .mark {
+    background: var(--accent);
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-family: monospace;
+  }
+
+  .top-controls {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .search {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--panel);
+    padding: 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .search input {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--white);
+    padding: 8px 10px;
+    width: 260px;
+  }
+
+  .btn {
+    background: var(--accent);
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  /* Контейнер и сетка */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--gap);
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,.6);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
   .card img {
-    max-height: 160px; /* уменьшаем высоту на телефонах */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
   }
-}
 
+  .meta {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .meta h3 { margin: 0; font-size: 14px; }
+  .meta .sub { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+
+  /* ===== Адаптация под мобильные устройства ===== */
+  @media (max-width: 900px) {
+    .featured { grid-template-columns: 1fr; gap: 10px; }
+    .side-feature { flex-direction: row; }
+    .side-item img { width: 100px; height: 60px; }
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+    }
+
+    .card img {
+      max-height: 140px;
+      border-radius: 8px;
+    }
+
+    .meta h3 { font-size: 13px; }
+    .meta .sub, .meta .small { font-size: 11px; }
+  }
+
+  footer {
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 28px 8px;
+  }
+
+  .card, .side-item, .tab, .page-btn {
+    transition: transform .14s ease, box-shadow .14s ease;
+  }
+
+  .card:hover { transform: translateY(-6px); }
 </style>
+
 </head>
 <body>
   <div class="wrap" id="app">
@@ -598,6 +597,7 @@ video, iframe {
 </script>
 </body>
 </html>
+
 
 
 
